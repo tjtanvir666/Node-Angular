@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- bootstrao css -->
+	<title>User Story</title>
+</head>
+
+<body ng-controller="mainController as main">
+
+<header>
+	<div class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand"><span class="glyphicon glyphicon-book"></span>User Story</a>
+			</div>
+
+			<ul class="nav navbar-nav">
+				<li><a href="/users"></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-if="!main.loggedIn"><a href="#login">Login</a></li>
+				<li ng-if="!main.loggedIn"><a href="#signup">Signup</a></li>
+				<li ng-if="main.loggedIn"><a href="#">Hello {{ main.user.username }}</a></li>
+				<li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+</header>
+
+ 
+<main class="container">
+
+	<div ng-view></div>
+</main>
+
+
+<!-- <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --><!-- bootstrao javascript -->
+<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script><!-- angular javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.min.js"></script> <!-- angular route -->
+
+<!-- Services -->
+<script src="app/services/authService.js"></script>
+<script src="app/services/userService.js"></script>
+<script src="app/services/storyService.js"></script>
+
+<!-- Controllers -->
+<script src="app/controllers/mainController.js"></script>
+<script src="app/controllers/userController.js"></script>
+<script src="app/controllers/storyController.js"></script>
+<!-- routes -->
+<script src="app/app.route.js"></script>
+<!-- main app file -->
+<script src="app/app.js"></script><!-- our javascript , no need to put the public in the directory name as we already mentioned it in the server.js  -->
+</html>

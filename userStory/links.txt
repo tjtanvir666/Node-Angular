@@ -1,0 +1,5 @@
+**while in postman, be careful to use the url encode and all those shitsna d the headers. for posts u can use x-www-form-urlecode. and make sure no empty headers.
+
+json web token expiresIn:
+http://stackoverflow.com/questions/37629475/validationerror-expiresinminutes-is-not-allowed-nodejs-jsonwebtoken
+
