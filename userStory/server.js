@@ -23,7 +23,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 var api = require('./app/routes/api')(app,express);
-app.use('/api', api);
+app.use('/api', api); //setting route for the apis
 
 app.get('*', function(req, res){     //* means anyhting other than the mentioned url which is here for now is api
 	res.sendFile(__dirname + '/public/app/views/index.html');

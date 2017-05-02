@@ -1,12 +1,13 @@
 angular.module('storyCtrl', ['storyService'])
 
-.controller('storyController', function(Story){  //the Story object is from the injected storyService
+.controller('storyController', function(Story,$scope){  //the Story object is from the injected storyService
 
 	var vm = this;
 
 	Story.getStories()
 	     .success(function(data){
-	     	vm.stories = data;
+	     	console.log(data);
+	     	$scope.allStories = data;   //this was the mistake to show the contents
 	     });
 
 	vm.createStory = function(){
@@ -18,7 +19,7 @@ angular.module('storyCtrl', ['storyService'])
 
 			 	vm.message = data.message;
 
-			 	vm.stories.push(data); 
+			 	//vm.stories.push(data); 
 			 });
 	}; 
 
